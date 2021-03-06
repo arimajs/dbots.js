@@ -7,7 +7,10 @@ import { ClientFiller } from '../ClientFiller'
  */
 export default class DiscordJS extends ClientFiller {
   get userCount(): number {
-    return this.client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)
+    return this.client.guilds.cache.reduce(
+      (acc: number, guild: { memberCount: number }) => acc + guild.memberCount,
+      0
+    )
   }
 
   get serverCount(): number {
